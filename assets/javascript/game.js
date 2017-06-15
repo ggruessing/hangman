@@ -30,6 +30,8 @@ var guesses = []
 
 var hint = []
 
+console.log(word)
+
 var spaceGen = function spaceGen(){
 	for (var i = 0; i < word.length; i++) {
 		spaces.push(" _")
@@ -43,7 +45,7 @@ var spaceChanger = function spaceChanger() {
 	
 	    var newHTML = 
 	    
-	    "Word: " + spaces;
+	    "Word: " + spaces.join("");
 
         document.querySelector("#word").innerHTML = newHTML;
 }
@@ -60,14 +62,35 @@ document.onkeypress = function(event) {
 
 	    if (word.indexOf(userInput) > -1){
 
-	    	spaces.splice(word.indexOf(userInput),1,word[word.indexOf(userInput)])
+	    	for (var i = 0; i < word.length; i++) {
+	    		if (userInput === word[i])
+	    		spaces[i] = userInput
+	    	}
 
 	    	var newHTML = 
 	    
-	    	"Word: " + spaces ;
+	    	"Word: " + spaces.join("") ;
 
         	document.querySelector("#word").innerHTML = newHTML;
 
+	    }
+
+
+	    else if (spaces.join("") === word){
+
+        	document.querySelector("#guesses").innerHTML = newHTML;
+
+        	document.querySelector("#manone").style.display = "none"
+        	document.querySelector("#mantwo").style.display = "none"
+        	document.querySelector("#manthree").style.display = "none"
+        	document.querySelector("#manfour").style.display = "none"
+        	document.querySelector("#manfive").style.display = "none"
+        	document.querySelector("#mansix").style.display = "none"
+        	document.querySelector("#manseven").style.display = "none"
+        	document.querySelector("#maneight").style.display = "none"
+
+
+	    	document.querySelector("#maneight").style.display = "block"
 	    }
 
 	    else if (guesses.indexOf(userInput) > -1){
@@ -79,7 +102,7 @@ document.onkeypress = function(event) {
 
 	    	var newHTML = 
 	    
-	    	"Guesses: " + guesses ;
+	    	"Guesses: " + guesses.join(" ") ;
 
         	document.querySelector("#guesses").innerHTML = newHTML;
 
@@ -90,11 +113,13 @@ document.onkeypress = function(event) {
         	document.querySelector("#manfive").style.display = "none"
         	document.querySelector("#mansix").style.display = "none"
         	document.querySelector("#manseven").style.display = "none"
+        	document.querySelector("#maneight").style.display = "none"
 
         	document.querySelector(selectors[guesses.length]).style.display = "block"
         }    
 	}
 	guessLogger();
+
 }
 
 
