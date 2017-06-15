@@ -71,7 +71,7 @@ document.onkeypress = function(event) {
 	    }
 
 	    else if (guesses.indexOf(userInput) > -1){
-	    	alert("Pay Attention")
+	    	alert("You already guessed that. Guess better.")
 	    }
 
 	    else{
