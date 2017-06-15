@@ -1,0 +1,11 @@
+@font-face {
+    font-family: dos;
+    src: url(../font/dos.ttf);
+}
+
+body {
+	font-family: "dos";
+	text-align: center;
+	background-color: black;
+	color: green;
+}
