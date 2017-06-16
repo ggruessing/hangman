@@ -118,7 +118,19 @@ document.onkeypress = function(event) {
         	document.querySelector(selectors[guesses.length]).style.display = "block"
         }    
 	}
-	guessLogger();
+
+	if (guesses.length < 6){
+		guessLogger();
+
+	}
+
+	else{
+	    var newHTML = 
+	    
+	    "Word: " + word;
+
+        document.querySelector("#word").innerHTML = newHTML;
+	}
 
 }
 
